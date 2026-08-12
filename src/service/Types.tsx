@@ -16,7 +16,7 @@ export interface playerStats {
     podiums:number,
     points:number,
     dnf:number,
-    history: []
+    history: never[]
 }
 
 export type PlayerStates =
@@ -102,6 +102,7 @@ export interface RiskOutcomeDisplay {
   tone: 'positive' | 'negative';
   ovrDelta: number;   
   playerState?: PlayerStates;
+  failStatePlayerState?: PlayerStates;
   message: string;
 }
 
@@ -121,7 +122,7 @@ export interface RiskEvent {
   };
   successChance: number; 
   playerState: PlayerStates;
-  failStatePlayerState?: PlayerStates
+  failStatePlayerState: PlayerStates;
 }
 
 export interface RiskEventResult {

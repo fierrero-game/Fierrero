@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Stats from "../Stats";
 import History from "../History";
 import Decisions from "../Decisions";
-import { chooseTeam, getOptionsTeam, getPlayerState, applyTrainingBoost, applyInjury, applyOvrDelta, setSeasonYears } from "../service/GameLoop";
+import { chooseTeam, getOptionsTeam, getPlayerState, applyOvrDelta, setSeasonYears } from "../service/GameLoop";
 import type { TeamOption, playerStats, Trophy, RiskEvent, RiskEventResult } from "../service/Types";
 import type { GameMode } from "./PresentationPage";
 import TrophyOverlay from "../TrophyOverlay"; 
@@ -31,7 +31,8 @@ function buildTrophyItems(trophies: Trophy[]): { image: string; count: number }[
 }
 
 function buildHistoryRows(player: playerStats, seasonYears: number) {
-  const rows: any[] = player.history.map((h, i) => {
+  const rows: any[] = player.history.map((h:playerStats, i) => {
+    
     const trophiesWonThisPeriod = player.trophies.filter((t) => t.age === h.age);
     return {
       id: `h-${i}`,

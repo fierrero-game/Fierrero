@@ -1,4 +1,4 @@
-import type { RiskEvent, RiskEventResult } from "./Types";
+import type { RiskEvent, RiskEventResult} from "./Types";
 import PlanSaludable from "/src/assets/dieta.jpg";
 import PlanAsado from "/src/assets/asado.webp";
 import PlanEntrenar from '/src/assets/entrenar.jpg'

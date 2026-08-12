@@ -6,7 +6,7 @@ import babel from '@rolldown/plugin-babel'
 export default defineConfig({
   plugins: [
     react(),
-    base: 'https://github.com/fierrero-game/Fierrero', // 👈 Reemplazá esto por el nombre exacto de tu repo en GitHub
     babel({ presets: [reactCompilerPreset()] })
   ],
+  base: 'https://github.com/fierrero-game/Fierrero', // 👈 Reemplazá esto por el nombre exacto de tu repo en GitHub
 })

@@ -1,4 +1,4 @@
-import type { Category, playerStats,Nations, TeamOption, Trophy, PlayerStates } from "./Types";
+import type {playerStats,Nations, TeamOption, Trophy, PlayerStates } from "./Types";
 import { getTrophyType } from "../TrophyAssets";
 import { f1Teams, f2Teams,f3Teams,f4Teams,kartingTeams, indycarTeams } from "./Data";
 
@@ -50,8 +50,8 @@ export function chooseTeam(chosen: TeamOption) {
     const period = computePeriodStats();
     updateTeam(chosen);
     const currentTeam = player.team;
-    
-    player.history.push({
+
+    (player.history as any).push({
         age: player.age,
         team: player.team,
         ovr: Math.round(player.ovr),
@@ -138,7 +138,7 @@ export function getOptionsTeam(): TeamOption[] {
         return pickRandomUnique(categoryTeams, 3);
     }
 
-    const lastPeriod = player.history[player.history.length - 1];
+    const lastPeriod:any = player.history[player.history.length - 1];
     const wasFired =
         lastPeriod !== undefined &&
         (lastPeriod.dnf > lastPeriod.wins ||

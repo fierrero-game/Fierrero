@@ -1,77 +1,42 @@
-# React + TypeScript + Vite
+# 🏎️ Fierrero — Copero F1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Pagina: 
+https://fierrero-game.github.io/Fierrero/
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Fierrero** es una plataforma pensada por y para fanáticos del automovilismo. Un copero de Fórmula 1 interactivo donde podés seguir los Grandes Premios, hacer pronósticos con tu grupo de amigos, sumar puntos carrera a carrera y competir por el campeonato de la comunidad fierrera.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🚀 Características Principales
 
-Note: This will impact Vite dev & build performances.
+- **🏆 Copero de F1:** Sumá puntos acertando pole position, podio, vuelta rápida y posiciones clave de cada Gran Premio.
+- **📊 Tabla de Posiciones:** Seguimiento en vivo del campeonato entre los miembros de la copa.
+- **📅 Calendario Oficial:** Fechas, horarios y circuitos de toda la temporada de la Fórmula 1.
+- **⚡ Rápido y Optimizado:** Desarrollado con React + Vite + TypeScript para una experiencia ultra fluida.
+- **📱 100% Mobile Friendly:** Diseñado para cargar los pronósticos rápido desde el celular antes de cada carrera.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologías Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Bundler:** [Vite](https://vitejs.dev/)
+- **CI/CD & Hosting:** [GitHub Actions](https://github.com/features/actions) + [GitHub Pages](https://pages.github.com/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 💻 Desarrollo Local
 
-```
+Seguí estos pasos para ejecutar el proyecto localmente en tu computadora:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Pre-requisitos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Asegurate de tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Pasos de instalación
 
-```
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/TU-USUARIO/fierrero.git](https://github.com/TU-USUARIO/fierrero.git)
+   cd fierrero
