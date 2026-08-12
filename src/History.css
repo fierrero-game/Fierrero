@@ -1,0 +1,389 @@
+/* ---------- History ---------- */
+
+.history {
+  text-align: left;
+  margin: 32px 0;
+}
+
+.history-title {
+  padding: 0 4px;
+}
+
+.history-table {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-header {
+  flex: 0 0 auto;
+}
+
+.history-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 64px repeat(var(--stat-cols, 3), 64px);
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-top: 1px solid var(--border);
+
+  /* IMPORTANTE:
+     cada fila se convierte en un container
+     para que sus elementos puedan adaptarse a su alto */
+  container-type: size;
+
+  /* Permite que los elementos internos se achiquen */
+  min-width: 0;
+}
+
+.history-body .history-row {
+  flex: 1 1 0;
+  min-height: 0;
+
+  padding-top: clamp(2px, 1.2vh, 10px);
+  padding-bottom: clamp(2px, 1.2vh, 10px);
+
+  /* evita que contenido demasiado grande rompa la fila */
+  overflow: hidden;
+}
+
+.history-row:first-child {
+  border-top: none;
+}
+
+.history-header {
+  font-family: var(--heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.55;
+  background: var(--code-bg);
+}
+
+.history-cell {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 1.5cqh, 10px);
+
+  min-width: 0;
+  min-height: 0;
+}
+
+.history-cell-ovr,
+.history-cell-stat {
+  justify-content: center;
+}
+
+.history-cell-age {
+  font-family: var(--mono);
+  font-weight: 700;
+
+  font-size: clamp(16px, 32cqh, 20px);
+
+  color: var(--text-h);
+}
+
+.history-club-name {
+  font-weight: 600;
+
+  font-size: clamp(16px, 34cqh, 20px);
+
+  color: var(--text-h);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  min-width: 0;
+}
+
+.history-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+}
+
+.history-logo img {
+  width: clamp(18px, 55cqh, 36px);
+  height: clamp(18px, 55cqh, 36px);
+
+  object-fit: contain;
+}
+
+.history-connector {
+  opacity: 0.5;
+  display: inline-flex;
+
+  flex: 0 0 auto;
+
+  font-size: clamp(8px, 30cqh, 18px);
+}
+
+.history-badge {
+  opacity: 0.7;
+
+  font-size: clamp(7px, 30cqh, 18px);
+
+  display: inline-flex;
+  align-items: center;
+
+  flex: 0 0 auto;
+}
+
+.history-trophy-badge {
+  width: clamp(8px, 45cqh, 28px);
+  height: clamp(8px, 45cqh, 28px);
+
+  object-fit: contain;
+  margin-top: 0;
+}
+
+.history-badge:has(.history-trophy-badge) {
+  opacity: 1;
+}
+
+.history-ovr {
+  font-family: var(--mono);
+  font-weight: 700;
+
+  font-size: clamp(11px, 32cqh, 18px);
+
+  border-radius: 3px;
+
+  padding: clamp(2px, 8cqh, 6px) clamp(4px, 18cqh, 12px);
+
+  min-width: clamp(20px, 75cqh, 44px);
+
+  text-align: center;
+  color: var(--text-h);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+
+  line-height: 1;
+}
+
+.history-stat-icon {
+  font-size: clamp(11px, 28cqh, 18px);
+
+  opacity: 0.8;
+
+  flex: 0 0 auto;
+}
+
+.history-cell-stat .counter {
+  padding: 0;
+
+  background: none;
+
+  font-size: clamp(11px, 32cqh, 18px);
+
+  line-height: 1;
+}
+
+.history-club-name {
+  font-weight: 600;
+
+  /* Antes: 14.5px */
+  font-size: clamp(12px, 34cqh, 14.5px);
+
+  color: var(--text-h);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  min-width: 0;
+}
+
+.history-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+}
+
+.history-logo img {
+  /* Antes: 22px */
+  width: clamp(20px, 55cqh, 22px);
+  height: clamp(20px, 55cqh, 22px);
+
+  object-fit: contain;
+}
+
+.history-connector {
+  opacity: 0.5;
+  display: inline-flex;
+
+  flex: 0 0 auto;
+
+  font-size: clamp(8px, 30cqh, 13px);
+}
+
+.history-badge {
+  opacity: 0.7;
+
+  /* Antes: 13px */
+  font-size: clamp(7px, 30cqh, 13px);
+
+  display: inline-flex;
+  align-items: center;
+
+  flex: 0 0 auto;
+}
+
+.history-trophy-badge {
+  /* Antes: 16px */
+  width: clamp(20px, 45cqh, 16px);
+  height: clamp(20px, 45cqh, 16px);
+
+  object-fit: contain;
+  margin-top: 0;
+}
+
+.history-badge:has(.history-trophy-badge) {
+  opacity: 1;
+}
+
+.history-ovr {
+  font-family: var(--mono);
+  font-weight: 700;
+
+  /* Antes: 13px */
+  font-size: clamp(12px, 32cqh, 13px);
+
+  border-radius: 3px;
+
+  /* También se achica */
+  padding: clamp(4px, 8cqh, 2px) clamp(4px, 18cqh, 8px);
+
+  min-width: clamp(20px, 75cqh, 32px);
+
+  text-align: center;
+  color: var(--text-h);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+
+  line-height: 1;
+}
+
+.history-ovr-bronze {
+  color: #cd7f32;
+  border-color: #cd7f32;
+  background: rgba(205, 127, 50, 0.1);
+}
+
+.history-ovr-green {
+  color: #2fae5c;
+  border-color: #2fae5c;
+  background: rgba(47, 174, 92, 0.1);
+}
+
+.history-ovr-blue {
+  color: #3b82f6;
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.history-ovr-gold {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: var(--gold-bg);
+}
+
+.history-ovr-purple {
+  color: #a855f7;
+  border-color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.history-stat-icon {
+  /* Antes: 12px */
+  font-size: clamp(16px, 28cqh, 12px);
+
+  opacity: 0.8;
+
+  flex: 0 0 auto;
+}
+
+.history-cell-stat .counter {
+  padding: 0;
+
+  background: none;
+
+  /* Antes: 13px */
+  font-size: clamp(13px, 32cqh, 13px);
+
+  line-height: 1;
+}
+
+.history-row-placeholder {
+  opacity: 0.3;
+}
+
+.history-row-pending {
+  background: var(--accent-bg);
+}
+
+.history-row-pending .history-club-name {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.history-row-special {
+  background: var(--code-bg);
+}
+
+@media (max-width: 1024px) {
+  .history-row {
+    grid-template-columns: 44px 1fr 56px repeat(var(--stat-cols, 3), 48px);
+    padding: 8px 12px;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-table {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+  }
+
+  .history-body {
+    overflow-x: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0; /* clave si el padre es flex */
+  }
+
+  .history-row {
+    grid-template-columns: 32px 1fr 44px repeat(var(--stat-cols, 3), 36px);
+    padding: 7px 8px;
+    gap: 3px;
+    min-width: 320px;
+  }
+
+  .history-header {
+    font-size: 9px;
+    flex-shrink: 0;
+  }
+
+  .history-stat-icon {
+    display: none;
+  }
+}

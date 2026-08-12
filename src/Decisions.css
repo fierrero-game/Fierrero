@@ -1,0 +1,141 @@
+/* ---------- Decisions ---------- */
+
+.decisions {
+  text-align: left;
+  margin: 32px 0;
+}
+
+.decisions-title {
+  padding: 0;
+}
+
+.decisions-description {
+  color: var(--text);
+  font-size: 14px;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+.decisions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.decision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--code-bg);
+  cursor: pointer;
+  font-family: var(--sans);
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.decision-card:hover:not(:disabled) {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  transform: translateY(-2px);
+}
+
+.decision-card:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.decision-label {
+  font-family: var(--heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.6;
+  text-align: center;
+}
+
+.decision-option-title {
+  font-family: var(--heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-h);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.decision-logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.decision-sublabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.decision-subicon {
+  display: inline-flex;
+  font-size: 12px;
+}
+
+/* ---------- Desktop: 2 arriba + 1 centrada abajo ---------- */
+@media (min-width: 641px) {
+  .decisions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .decision-card:nth-child(3):last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 6px); /* mismo ancho que una card de la fila de arriba */
+  }
+}
+
+@media (max-width: 640px) {
+  .decisions {
+    margin: 24px 0;
+  }
+
+  .decisions-description {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .decisions-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .decision-card {
+    padding: 12px 6px;
+    gap: 6px;
+  }
+
+  .decision-logo img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .decision-option-title {
+    font-size: 12px;
+  }
+
+  .decision-label {
+    font-size: 8.5px;
+  }
+
+  .decision-sublabel {
+    font-size: 9.5px;
+    gap: 3px;
+  }
+}

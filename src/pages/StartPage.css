@@ -1,0 +1,252 @@
+.start-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 24px 20px;
+  box-sizing: border-box;
+}
+
+.start-card {
+  width: 100%;
+  max-width: 900px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 28px 24px;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+}
+
+.start-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 60%, var(--gold) 100%);
+}
+
+.start-title {
+  text-align: left;
+  margin: 0 0 24px;
+}
+
+.start-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+}
+
+.start-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  text-align: left;
+}
+
+.start-col-title {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+/* ---- Remera del piloto ---- */
+
+.start-jersey {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 8px;
+}
+
+.start-jersey-shirt {
+  width: 160px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 16px 16px 32px 32px;
+  background: linear-gradient(160deg, var(--accent) 0%, var(--accent) 55%, var(--gold) 130%);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.start-jersey-shirt::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 28px;
+  border-radius: 0 0 30px 30px;
+  background: var(--bg-alt);
+}
+
+.start-jersey-name {
+  font-family: var(--heading);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-transform: uppercase;
+  max-width: 90%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.start-jersey-number {
+  font-family: var(--heading);
+  font-weight: 900;
+  font-size: 56px;
+  color: #fff;
+  line-height: 1;
+}
+
+/* ---- Campos ---- */
+
+.start-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.start-label {
+  font-family: var(--heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.start-input,
+.start-search {
+  padding: 11px 13px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.start-input:focus,
+.start-search:focus {
+  border-color: var(--accent-border);
+}
+
+/* ---- Lista de nacionalidad ---- */
+
+.start-nation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.start-nation-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  cursor: pointer;
+  font-family: var(--sans);
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.start-nation-item:hover {
+  border-color: var(--accent-border);
+}
+
+.start-nation-item-selected {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.start-nation-name {
+  flex: 1;
+  font-size: 13.5px;
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.start-nation-check {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.start-nation-empty {
+  color: var(--text);
+  font-size: 13px;
+  opacity: 0.7;
+  padding: 8px 4px;
+}
+
+.start-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.start-submit {
+  padding: 13px 30px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.start-submit:hover:not(:disabled) {
+  background: var(--accent);
+  color: #fff;
+}
+
+.start-submit:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 700px) {
+  .start-grid {
+    grid-template-columns: 1fr;
+  }
+  .start-nation-list {
+    max-height: 260px;
+  }
+}
+
+.start-nation-flag-icon {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+}

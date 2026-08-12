@@ -1,0 +1,369 @@
+.summary-page {
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+
+.summary-layout {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---- Tarjeta principal del piloto ---- */
+
+.summary-driver-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+}
+
+.summary-driver-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 60%, var(--gold) 100%);
+}
+
+.summary-flag {
+  display: none;
+}
+
+.summary-driver-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.summary-driver-tag {
+  font-family: var(--heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.summary-driver-name {
+  margin: 0;
+  font-size: 30px;
+  text-align: left;
+}
+
+.summary-driver-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.summary-driver-number {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--text-h);
+}
+
+.summary-driver-nation {
+  font-size: 12.5px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.summary-driver-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.summary-driver-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-driver-stat-value {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text-h);
+}
+
+.summary-driver-stat-label {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.summary-ovr-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.summary-ovr-label {
+  font-family: var(--heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-h);
+  opacity: 0.7;
+}
+
+.summary-ovr-value {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--text-h);
+}
+
+.summary-ovr-bronze {
+  background: linear-gradient(160deg, #cd7f32, #8a5a22);
+  box-shadow: 0 0 16px rgba(205, 127, 50, 0.5), 0 0 2px rgba(205, 127, 50, 0.6);
+}
+.summary-ovr-green {
+  background: linear-gradient(160deg, #2fae5c, #1f7a41);
+  box-shadow: 0 0 16px rgba(47, 174, 92, 0.5), 0 0 2px rgba(47, 174, 92, 0.6);
+}
+.summary-ovr-blue {
+  background: linear-gradient(160deg, #3b82f6, #2557b0);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.5), 0 0 2px rgba(59, 130, 246, 0.6);
+}
+.summary-ovr-gold {
+  background: linear-gradient(160deg, var(--gold), #8a6608);
+  box-shadow: 0 0 16px rgba(184, 134, 15, 0.5), 0 0 2px rgba(184, 134, 15, 0.6);
+}
+.summary-ovr-purple {
+  background: linear-gradient(160deg, #a855f7, #7c3aed);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.5), 0 0 2px rgba(168, 85, 247, 0.6);
+}
+
+/* ---- Grilla de equipos ---- */
+
+.summary-teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.summary-team-card {
+  --team-color: var(--accent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 14px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--team-color) 22%, var(--code-bg)) 0%, var(--code-bg) 65%);
+  overflow: hidden;
+}
+
+.summary-team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--team-color);
+}
+
+.summary-team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.summary-team-name {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-h);
+  text-transform: uppercase;
+}
+
+.summary-team-stats {
+  display: flex;
+  gap: 14px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  justify-content: center;
+}
+
+.summary-team-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.summary-team-stat-value {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-h);
+}
+
+.summary-team-stat-label {
+  font-size: 9.5px;
+  color: var(--text);
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+.summary-team-trophies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.summary-team-trophy-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.summary-restart {
+  align-self: flex-end;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.summary-restart:hover {
+  border-color: var(--accent-border);
+}
+
+.summary-flag-icon {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.summary-team-trophies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px; /* espacio entre distintos TIPOS de trofeo, y entre filas si hay wrap */
+  justify-content: center;
+  padding-top: 4px;
+  max-width: 100%;
+}
+
+.summary-trophy-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100%;
+  row-gap: 6px;
+}
+
+.summary-trophy-stack .summary-team-trophy-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--team-color) 25%, var(--code-bg)) 0%,
+    var(--code-bg) 100%
+  );
+  position: relative;
+  flex-shrink: 0;
+}
+
+.summary-trophy-stack .summary-team-trophy-icon:not(:first-child) {
+  margin-left: -22px; /* acá se define cuánto se "comen" entre sí */
+}
+
+/* Cuando hay 5+ del mismo tipo: achicamos para que quepan mejor */
+.summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(5)) .summary-team-trophy-icon {
+  width: 40px;
+  height: 40px;
+}
+.summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(5)) .summary-team-trophy-icon:not(:first-child) {
+  margin-left: -16px;
+}
+
+/* Cuando hay 9+ del mismo tipo: todavía más chico */
+.summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(9)) .summary-team-trophy-icon {
+  width: 30px;
+  height: 30px;
+}
+.summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(9)) .summary-team-trophy-icon:not(:first-child) {
+  margin-left: -12px;
+}
+
+@media (max-width: 480px) {
+  .summary-team-trophies {
+    gap: 8px 10px;
+  }
+
+  .summary-trophy-stack .summary-team-trophy-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .summary-trophy-stack .summary-team-trophy-icon:not(:first-child) {
+    margin-left: -16px;
+  }
+
+  .summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(5)) .summary-team-trophy-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(5)) .summary-team-trophy-icon:not(:first-child) {
+    margin-left: -12px;
+  }
+
+  .summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(9)) .summary-team-trophy-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .summary-trophy-stack:has(.summary-team-trophy-icon:nth-child(9)) .summary-team-trophy-icon:not(:first-child) {
+    margin-left: -9px;
+  }
+}
+

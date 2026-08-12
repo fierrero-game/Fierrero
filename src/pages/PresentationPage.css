@@ -1,0 +1,142 @@
+.presentation-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+
+.presentation-content {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+/* ---- Título ---- */
+
+.presentation-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.presentation-eyebrow {
+  font-family: var(--heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.presentation-title {
+  margin: 0;
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 72px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--text-h);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Botones de modo ---- */
+
+.presentation-modes {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.presentation-mode-btn {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 36px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.presentation-mode-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-border);
+}
+
+.presentation-mode-name {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-h);
+}
+
+.presentation-mode-desc {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.75;
+  text-align: center;
+}
+
+.presentation-mode-normal::before,
+.presentation-mode-intenso::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 3px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+
+.presentation-mode-normal::before {
+  background: var(--accent);
+}
+
+.presentation-mode-intenso::before {
+  background: var(--gold);
+}
+
+/* ---- Apoyo / donación ---- */
+
+.presentation-support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.presentation-support-link:hover {
+  border-color: var(--gold);
+  background: var(--accent-bg);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,68 @@
+.game-page {
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+
+.game-card {
+  width: 100%;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  align-items: start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+.game-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.game-col-right {
+  height: 100%;
+}
+
+/* Stats y Decisions ya tienen su propio margin: 32px 0, 
+   dentro de la card se ve muy separado -> lo reseteamos */
+.game-col-left .stats,
+.game-col-left .decisions {
+  margin: 0;
+}
+
+.game-col-right .history {
+  margin: 0;
+}
+
+.retirement-summary-btn {
+  margin-top: 16px;
+  padding: 10px 22px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.retirement-summary-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .game-card {
+    grid-template-columns: 1fr;
+  }
+}

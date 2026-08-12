@@ -1,0 +1,256 @@
+.risk-decision {
+  text-align: left;
+  margin: 32px 0;
+}
+
+.risk-decision-title {
+  padding: 0;
+}
+
+.risk-decision-description {
+  color: var(--text);
+  font-size: 14px;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+.risk-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.risk-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--code-bg);
+  cursor: pointer;
+  font-family: var(--sans);
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease,
+    opacity 0.3s ease;
+}
+
+.risk-card:hover:not(:disabled) {
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
+}
+
+.risk-card:disabled {
+  cursor: default;
+}
+
+.risk-card-faded {
+  opacity: 0.4;
+  transform: scale(0.94);
+  filter: grayscale(1);
+}
+
+.risk-card-faded:hover {
+  transform: scale(0.94);
+}
+
+.risk-card-label {
+  font-family: var(--heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.risk-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.risk-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.risk-card-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.risk-card-outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.risk-outcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 800;
+  transition: all 0.15s ease;
+}
+
+.risk-outcome-positive {
+  color: #2fae5c;
+  background: rgba(47, 174, 92, 0.18);
+  border-color: rgba(47, 174, 92, 0.4);
+}
+
+.risk-outcome-negative {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.risk-outcome-neutral {
+  justify-content: center;
+  color: var(--text-h);
+  background: var(--bg);
+  border-color: var(--border);
+  opacity: 0.9;
+}
+
+.risk-outcome-chance {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Estado durante el roleo: pulsa fuerte con el color propio */
+.risk-outcome-active {
+  transform: scale(1.08);
+}
+
+.risk-outcome-active.risk-outcome-positive {
+  background: rgba(47, 174, 92, 0.35);
+  box-shadow: 0 0 16px rgba(47, 174, 92, 0.5);
+}
+
+.risk-outcome-active.risk-outcome-negative {
+  background: rgba(225, 6, 0, 0.3);
+  box-shadow: 0 0 16px rgba(225, 6, 0, 0.45);
+}
+
+/* Una vez que ya salió el resultado: la opción que NO ganó se achica y apaga */
+.risk-outcome-lost {
+  opacity: 0.4;
+  transform: scale(0.88);
+  filter: grayscale(1);
+  background: var(--code-bg) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+.risk-outcome-won {
+  transform: scale(1.1);
+}
+
+.risk-outcome-won.risk-outcome-positive {
+  background: rgba(47, 174, 92, 0.35);
+  box-shadow: 0 0 20px rgba(47, 174, 92, 0.55);
+}
+
+.risk-outcome-won.risk-outcome-negative {
+  background: rgba(225, 6, 0, 0.3);
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
+}
+
+.risk-card-rolling {
+  border-color: var(--gold);
+}
+
+.risk-card-rolling .risk-card-image {
+  animation: risk-pulse 0.25s ease-in-out infinite alternate;
+}
+
+@keyframes risk-pulse {
+  from { filter: brightness(1) saturate(1); }
+  to { filter: brightness(1.25) saturate(1.4); }
+}
+
+.risk-decision-continue {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.risk-decision-continue:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .risk-decision {
+    margin: 24px 0;
+  }
+
+  .risk-decision-description {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .risk-decision-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .risk-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .risk-card-label {
+    font-size: 11px;
+  }
+
+  .risk-card-image-placeholder {
+    font-size: 24px;
+  }
+
+  .risk-card-outcomes {
+    gap: 6px;
+  }
+
+  .risk-outcome {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .risk-outcome-chance {
+    font-size: 10px;
+  }
+
+  .risk-decision-continue {
+    width: 100%;
+    margin-top: 14px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+}
