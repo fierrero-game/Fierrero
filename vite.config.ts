@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: 'https://github.com/fierrero-game/Fierrero', // 👈 Reemplazá esto por el nombre exacto de tu repo en GitHub
+  base: '/Fierrero/', // 👈 Reemplazá esto por el nombre exacto de tu repo en GitHub
 })
