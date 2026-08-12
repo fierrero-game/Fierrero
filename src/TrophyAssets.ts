@@ -28,8 +28,10 @@ export const TROPHY_LABEL: Record<Trophy['type'], string> = {
 };
 
 const CATEGORY_TROPHY_TYPE: Partial<Record<Category, Trophy['type']>> = {
-  'KARTING': 'karting',
-  'FORMULA 4': 'f4',
+  'KARTING ARGENTINO': 'karting',
+  'KARTING EUROPEO': 'karting',
+  'FORMULA 4 INGLESA': 'f4',
+  'FORMULA 4 ITALIA': 'f4',
   'FORMULA 3': 'f3',
   'FORMULA 2': 'f2',
   'FORMULA 1': 'wdc',

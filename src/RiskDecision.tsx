@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { RiskEvent, RiskEventResult, PlayerStates } from "./service/Types";
+import type { RiskEvent, RiskEventResult} from "./service/Types";
 import "./RiskDecision.css";
 
 interface RiskDecisionProps {

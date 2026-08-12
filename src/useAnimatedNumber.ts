@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export function useAnimatedNumber(target: number, duration = 600): number {
   const [displayValue, setDisplayValue] = useState(target);
   const fromRef = useRef(target);
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number>(fromRef.current);
 
   useEffect(() => {
     const from = fromRef.current;
