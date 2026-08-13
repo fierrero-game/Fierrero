@@ -2,6 +2,7 @@ import type {playerStats,Nations, TeamOption, Trophy, PlayerStates } from "./Typ
 import { getTrophyType } from "../TrophyAssets";
 import { f1Teams, f2Teams,f3Teams,f4Teams,kartingTeams, indycarTeams } from "./Data";
 
+let lastPlayerWasFired = false;
 let injuredNextPeriod = false;
 let championship = false;
 let seasonYears = 1;
@@ -12,7 +13,7 @@ let player: playerStats = {
     ovr:40,
     maxOvr:40,
     age:9,
-    talent: 0.1 +  Math.pow(Math.random(), 3) * 0.9,
+    talent: rollTalent(),
     nationality: null,
     ligue: null,
     team: null,
@@ -32,7 +33,7 @@ export function initializePlayer(name: string, nationality: Nations, number: num
     player.ovr = 40;
     player.maxOvr = 40;
     player.age = 9;
-    player.talent = 0.2 + Math.pow(Math.random(), 3) * 0.9;
+    player.talent = rollTalent();
     player.team = null;
     player.trophies = [];
     player.races = 0;
@@ -45,6 +46,21 @@ export function initializePlayer(name: string, nationality: Nations, number: num
     championship = false;
     seasonYears = years;
     console.log(player.talent);
+}
+
+function rollTalent(): number {
+    const roll = Math.random();
+
+    if (roll < 0.1) {
+        // Ultra raro (10%): genio
+        return 0.8 + Math.random() * 0.19; // 0.80 - 0.99
+    }
+    if (roll < 0.25) {
+        // Raro (15% adicional, 25% acumulado): crack
+        return 0.5 + Math.random() * 0.25; // 0.50 - 0.75
+    }
+    // Común (80%): la gran mayoría de los pilotos
+    return 0.2 + Math.random() * 0.2; // 0.20 - 0.40
 }
 
 export function chooseTeam(chosen: TeamOption) {
@@ -142,22 +158,29 @@ export function getOptionsTeam(): TeamOption[] {
     const categoryTeams = getCategoryTeams();
 
     if (!player.team) {
+        lastPlayerWasFired = false;
         return pickRandomUnique(categoryTeams, 3);
     }
 
     const lastPeriod:any = player.history[player.history.length - 1];
     const wasFired =
         lastPeriod !== undefined &&
-        (lastPeriod.dnf > lastPeriod.wins ||
-        lastPeriod.wins < lastPeriod.races * 0.15 ||
+        (lastPeriod.dnf > lastPeriod.wins + lastPeriod.podiums ||
+        lastPeriod.wins + lastPeriod.podiums < lastPeriod.races * 0.2 ||
         (player.age > 31 && player.ovr < 55));
-  
+            
+    lastPlayerWasFired = wasFired;
+
     if (wasFired) {
         return pickRandomUnique(categoryTeams, 3, player.team);
      }
 
     const alternatives = pickRandomUnique(categoryTeams, 2, player.team);
     return [...alternatives, player.team]; 
+}
+
+export function wasPlayerFired(): boolean {
+    return lastPlayerWasFired;
 }
 
 function pickRandomUnique(teams: TeamOption[], count: number, exclude?: TeamOption | null): TeamOption[] {
@@ -174,11 +197,6 @@ function updateAge(years: number) {
     player.age += years;
 }
 
-function normalizedSkill(ovr: number): number {
-    // asymptotic: se acerca a 1 pero nunca lo alcanza
-    return 1 - Math.exp(-ovr / 90);
-}
-
 function computePeriodStats() {
     let races = 0;
     if (injuredNextPeriod) {
@@ -187,32 +205,26 @@ function computePeriodStats() {
         return { races, wins: 0, podiums: 0, dnf: 0 };
     }
 
-    if(seasonYears == 2){
+    if (seasonYears == 2) {
         races = 20 + Math.random() * 4 + 20 + Math.random() * 4;
-    }else{
-        races = 20 + Math.random() * 4
+    } else {
+        races = 20 + Math.random() * 4;
     }
-    
 
     if (championship) {
         return { races, wins: races, podiums: races, dnf: 0 };
     }
 
-    const performance = player.talent * 0.5 + normalizedSkill(player.ovr) * 0.5;
+    const talentFactor = 0.75 + player.talent * 0.5;
+    
+    const winRate = Math.min(0.95, Math.pow(Math.random(), 2) * talentFactor);
+    const wins = races * winRate;
 
-    if (player.talent > 0.75) {
-        const dominantChance = (player.talent - 0.75) / 0.25;
-        if (Math.random() < dominantChance) {
-            const wins = races * (0.5 + Math.random() * 0.5 * performance);
-            const podiums = (races - wins) * (0.5 + Math.random() * 0.5);
-            const dnf = races * Math.random() * 0.05 * (1 - performance);
-            return { races, wins, podiums, dnf };
-        }
-    }
+    const podiumRate = Math.min(0.95, Math.pow(Math.random(), 2) * talentFactor);
+    const podiums = (races - wins) * podiumRate;
 
-    const wins = races * (0 + Math.random() * player.talent);
-    const podiums = (0 + Math.random() * (races - wins) * 0.5);
-    const dnf = races * (0.05 + Math.random() * 0.15);
+    const dnf = (races - wins - podiums) * Math.pow(Math.random(),1.5) * (0.3 - player.talent * 0.15);
+
     return { races, wins, podiums, dnf };
 }
 
@@ -221,11 +233,11 @@ function updateOVR(){
 
     if(player.age < 31){
         if(player.age < 17 && player.ovr < 85){
-            player.ovr += (4 + Math.random() * (12 * player.talent * 2)) * growthScale;
+            player.ovr += (3 + Math.random() * (12 * player.talent * 1.5)) * growthScale;
         }else if(player.ovr >= 85){
-            player.ovr += (1 + Math.random() * 3) * growthScale;
+            player.ovr += (0 + Math.random() * (5 * player.talent)) * growthScale;
         }else{
-            player.ovr += (1 + Math.random() * (8 * player.talent)) * growthScale;
+            player.ovr += (2 + Math.random() * (10 * player.talent)) * growthScale;
         }
     }
     else{

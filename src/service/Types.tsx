@@ -25,7 +25,6 @@ export type PlayerStates =
   | 'Injury'
   | 'Championship';
 
-
 export interface TeamOption {
   name: string;
   category: Category;
@@ -53,6 +52,22 @@ export type Category =
     | 'STOCK_CAR_BRASIL'
     | 'FORMULA E'
     | 'SUPER FORMULA';
+
+export const LEAGUE_AVERAGE_OVR: Record<Category, number> = {
+  'KARTING ARGENTINO': 40,
+  'KARTING EUROPEO': 45,
+  'FORMULA 4 INGLESA': 52,
+  'FORMULA 4 ITALIA': 52,
+  'FORMULA 3': 62,
+  'FORMULA 2': 72,
+  'FORMULA 1': 92,
+  'INDYCAR': 78,
+  'WEC_LEMANS': 74,
+  'TURISMO_CARRETERA': 64,
+  'STOCK_CAR_BRASIL': 64,
+  'FORMULA E': 76,
+  'SUPER FORMULA': 76,
+};
 
 export type Nations = typeof NATIONALITIES[number]['name'];
 

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Stats from "../Stats";
 import History from "../History";
 import Decisions from "../Decisions";
-import { chooseTeam, getOptionsTeam, getPlayerState, applyOvrDelta, setSeasonYears } from "../service/GameLoop";
+import { chooseTeam, getOptionsTeam, getPlayerState, applyOvrDelta, setSeasonYears, wasPlayerFired } from "../service/GameLoop";
 import type { TeamOption, playerStats, Trophy, RiskEvent, RiskEventResult } from "../service/Types";
 import type { GameMode } from "./PresentationPage";
 import TrophyOverlay from "../TrophyOverlay"; 
+import FiredModal from "../FiredModal";
 import { TROPHY_IMAGE, TROPHY_LABEL } from "../TrophyAssets";
 import { rollRiskEventTrigger, resolveRiskyChoice, resolveSafeChoice } from "../service/events";
 import RiskDecision from "../RiskDecision";
@@ -79,21 +80,26 @@ export default function GamePage({ mode, onCareerEnd }: GamePageProps) {
   const [player, setPlayer] = useState(getPlayerState());
   const [options, setOptions] = useState<TeamOption[]>(getOptionsTeam() ?? []);
   const [celebration, setCelebration] = useState<Trophy[] | null>(null);
+  const [firedNotice, setFiredNotice] = useState(false);
   const [riskEvent, setRiskEvent] = useState<RiskEvent | null>(() => rollNextEvent(player.age));
   const [riskResult, setRiskResult] = useState<RiskEventResult | null>(null);
 
   const isRetired = player.age >= RETIREMENT_AGE;
 
   function advanceAfterSeason(wonTrophies: Trophy[]) {
-    const updated = getPlayerState();
-    setPlayer(updated);
+      const updated = getPlayerState();
+      setPlayer(updated);
 
-    const retired = updated.age >= RETIREMENT_AGE;
-    setOptions(retired ? [] : getOptionsTeam() ?? []);
-    setRiskEvent(rollNextEvent(updated.age));
-    setRiskResult(null);
+      const retired = updated.age >= RETIREMENT_AGE;
+      const nextOptions = retired ? [] : getOptionsTeam() ?? [];
+      setOptions(nextOptions);
 
-    if (wonTrophies.length > 0) setCelebration(wonTrophies);
+      const nextRiskEvent = rollNextEvent(updated.age);
+      setRiskEvent(nextRiskEvent);
+      setRiskResult(null);
+
+      if (!retired && !nextRiskEvent && wasPlayerFired()) setFiredNotice(true);
+      if (wonTrophies.length > 0) setCelebration(wonTrophies);
   }
 
   function handleSelect(team: TeamOption) {
@@ -199,7 +205,10 @@ export default function GamePage({ mode, onCareerEnd }: GamePageProps) {
           />
         </div>
       </div>
-      {celebration && (
+      {firedNotice && (
+        <FiredModal onDone={() => setFiredNotice(false)} />
+      )}
+      {!firedNotice && celebration && (
         <TrophyOverlay trophies={celebration} onDone={() => setCelebration(null)} />
       )}
     </div>
