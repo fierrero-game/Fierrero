@@ -141,9 +141,9 @@ export default function GamePage({ mode, onCareerEnd }: GamePageProps) {
               name={ player.name ?? ""}
               age={player.age}
               stats={[
-                { label: "RACES", value: Math.round(player.races), icon: "🏁" },
-                { label: "WINS", value: Math.round(player.wins), icon: "🏆" },
-                { label: "PODIUMS", value: Math.round(player.podiums), icon: "🥈" },
+                { label: "CARRERAS", value: Math.round(player.races), icon: "🏁" },
+                { label: "VICTORIAS", value: Math.round(player.wins), icon: "🏆" },
+                { label: "PODIOS", value: Math.round(player.podiums), icon: "🥈" },
                 { label: "DNF", value: Math.round(player.dnf), icon: "💥" },
               ]}
               trophies={buildTrophyItems(player.trophies)}
@@ -170,7 +170,7 @@ export default function GamePage({ mode, onCareerEnd }: GamePageProps) {
             ) : (
               <Decisions
                 title="Mercado de pases"
-                description="Llegaron ofertas después de tu último tramo de carrera. Podés aceptar una o quedarte en tu club."
+                description="Llegaron ofertas después de tu último tramo de carrera. Podés aceptar una o quedarte en tu equipo."
                 options={options.map((team, i) => {
                   const isCurrent = player.team != null && i === options.length - 1 && team.name === player.team.name;
                   return {

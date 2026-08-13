@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { NATIONALITIES } from './Data';
 
 export interface playerStats {
     name: string,
@@ -51,46 +52,14 @@ export type Category =
     | 'TURISMO_CARRETERA' 
     | 'STOCK_CAR_BRASIL';
 
-export type Nations =
-    | 'Argentina'
-    | 'Brasil'
-    | 'México'
-    | 'España'
-    | 'Colombia'
-    | 'Uruguay'
-    | 'Chile'
-    | 'Perú'
-    | 'Reino Unido'
-    | 'Alemania'
-    | 'Francia'
-    | 'Italia'
-    | 'Países Bajos'
-    | 'Mónaco'
-    | 'Australia'
-    | 'Japón'
-    | 'Estados Unidos'
 
-export const NATION_CODE: Record<Nations, string> = {
-  'Argentina': 'ar',
-  'Brasil': 'br',
-  'México': 'mx',
-  'España': 'es',
-  'Colombia': 'co',
-  'Uruguay': 'uy',
-  'Chile': 'cl',
-  'Perú': 'pe',
-  'Reino Unido': 'gb',
-  'Alemania': 'de',
-  'Francia': 'fr',
-  'Italia': 'it',
-  'Países Bajos': 'nl',
-  'Mónaco': 'mc',
-  'Australia': 'au',
-  'Japón': 'jp',
-  'Estados Unidos': 'us',
-};
+export type Nations = typeof NATIONALITIES[number]['name'];
 
-export const NATIONS_LIST = Object.keys(NATION_CODE) as Nations[];
+export const NATIONS_LIST: Nations[] = NATIONALITIES.map((n) => n.name);
+
+export const NATION_CODE: Record<Nations, string> = Object.fromEntries(
+  NATIONALITIES.map((n) => [n.name, n.code])
+) as Record<Nations, string>;
 
 export function getFlagUrl(nation: Nations, width: 20 | 40 | 80 = 40): string {
   return `https://flagcdn.com/w${width}/${NATION_CODE[nation]}.png`;

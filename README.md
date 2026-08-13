@@ -1,42 +1,80 @@
-# 🏎️ Fierrero — Copero F1
+# 🏎️ Fierrero
 
-## Pagina: 
-https://fierrero-game.github.io/Fierrero/
+**Career Mode de Fórmula 1** — un juego de gestión de carrera en el mundo del automovilismo, jugable directo desde el navegador.
 
-
-**Fierrero** es una plataforma pensada por y para fanáticos del automovilismo. Un copero de Fórmula 1 interactivo donde podés seguir los Grandes Premios, hacer pronósticos con tu grupo de amigos, sumar puntos carrera a carrera y competir por el campeonato de la comunidad fierrera.
+🎮 **[Jugar ahora](https://fierrero-game.github.io/Fierrero/)**
 
 ---
 
-## 🚀 Características Principales
+## Sobre el proyecto
 
-- **🏆 Copero de F1:** Sumá puntos acertando pole position, podio, vuelta rápida y posiciones clave de cada Gran Premio.
-- **📊 Tabla de Posiciones:** Seguimiento en vivo del campeonato entre los miembros de la copa.
-- **📅 Calendario Oficial:** Fechas, horarios y circuitos de toda la temporada de la Fórmula 1.
-- **⚡ Rápido y Optimizado:** Desarrollado con React + Vite + TypeScript para una experiencia ultra fluida.
-- **📱 100% Mobile Friendly:** Diseñado para cargar los pronósticos rápido desde el celular antes de cada carrera.
+Fierrero es un juego de simulación de carrera deportiva en el que manejás el recorrido de un piloto de Fórmula 1: elegís equipo, tomás decisiones que afectan tu carrera, competís por trofeos y ves cómo tu historial se va construyendo temporada a temporada.
+
+### Modos de juego
+
+- **Normal** — la vida avanza cada 2 temporadas.
+- **Intenso** — la vida avanza cada 1 temporada, para partidas más rápidas.
+
+### Características
+
+- 🏆 Sistema de trofeos con animaciones y seguimiento de logros.
+- 🤝 Sistema de decisiones que impactan el rumbo de tu carrera (fichajes, continuidad en el equipo, etc.).
+- 📊 Historial de carrera con estadísticas por temporada.
+- 🎲 Eventos de riesgo que agregan incertidumbre a cada decisión.
+- 🏁 Selección y progresión de equipos a lo largo de los años.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tech stack
 
-- **Frontend:** [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Bundler:** [Vite](https://vitejs.dev/)
-- **CI/CD & Hosting:** [GitHub Actions](https://github.com/features/actions) + [GitHub Pages](https://pages.github.com/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
 
 ---
 
-## 💻 Desarrollo Local
+## Correr el proyecto en local
 
-Seguí estos pasos para ejecutar el proyecto localmente en tu computadora:
+Requisitos: [Node.js](https://nodejs.org/) instalado.
 
-### Pre-requisitos
+```bash
+# Clonar el repo
+git clone https://github.com/fierrero-game/Fierrero.git
+cd Fierrero
 
-Asegurate de tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior).
+# Instalar dependencias
+npm install
 
-### Pasos de instalación
+# Levantar el servidor de desarrollo
+npm run dev
+```
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone [https://github.com/TU-USUARIO/fierrero.git](https://github.com/TU-USUARIO/fierrero.git)
-   cd fierrero
+El proyecto va a estar disponible en `http://localhost:5173` (o el puerto que indique Vite).
+
+### Build de producción
+
+```bash
+npm run build
+```
+
+Los archivos generados van a `dist/`.
+
+---
+
+## Deploy
+
+El proyecto se despliega automáticamente a **GitHub Pages** con cada push a `main`, mediante GitHub Actions.
+
+---
+
+## ☕ Apoyá el proyecto
+
+Si te gustó Fierrero y querés bancar su desarrollo, podés invitarnos un cafecito:
+
+👉 **[cafecito.app/fierrerogame](https://cafecito.app/fierrerogame)**
+
+---
+
+## Licencia
+
+Este proyecto es de uso personal / código abierto. *(Ajustar según corresponda si se agrega una licencia formal.)*

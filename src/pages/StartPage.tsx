@@ -1,8 +1,9 @@
 import { useState } from "react";
 import type { Nations } from "../service/Types";
+import { NATIONALITIES } from "../service/Data";
 import type { GameMode } from "./PresentationPage";
 import { initializePlayer } from "../service/GameLoop";
-import { getFlagUrl, NATIONS_LIST } from "../service/Types";
+import { getFlagUrl } from "../service/Types";
 import "./StartPage.css";
 
 interface StartPageProps {
@@ -16,10 +17,10 @@ export default function StartPage({ mode, onStart }: StartPageProps) {
   const [nationality, setNationality] = useState<Nations>('Argentina');
   const [search, setSearch] = useState("");
 
-  const isValid = name.trim().length > 0 && number >= 1 && number <= 99;
+  const isValid = name.trim().length > 0 && number >= 0 && number <= 9999;
 
-  const filteredNations = NATIONS_LIST.filter((n) =>
-    n.toLowerCase().includes(search.trim().toLowerCase())
+  const filteredNations = NATIONALITIES.filter((n) =>
+    n.name.toLowerCase().includes(search.trim().toLowerCase())
   );
 
   function handleConfirm() {
@@ -61,10 +62,15 @@ export default function StartPage({ mode, onStart }: StartPageProps) {
               <input
                 type="number"
                 className="start-input"
-                min={1}
-                max={99}
+                min={0}
+                max={9999}
                 placeholder='43'
-                onChange={(e) => setNumber(Number(e.target.value))}
+                onChange={(e) => {
+                  const raw = e.target.value.slice(0, 4);
+                  const clamped = Math.min(9999, Math.max(0, Number(raw) || 0));
+                  setNumber(clamped);
+                  e.target.value = raw;
+                }}
               />
             </label>
           </div>
@@ -84,13 +90,13 @@ export default function StartPage({ mode, onStart }: StartPageProps) {
               {filteredNations.map((n) => (
                 <button
                   type="button"
-                  key={n}
-                  className={`start-nation-item ${nationality === n ? 'start-nation-item-selected' : ''}`}
-                  onClick={() => setNationality(n)}
+                  key={n.name}
+                  className={`start-nation-item ${nationality === n.name ? 'start-nation-item-selected' : ''}`}
+                  onClick={() => setNationality(n.name)}
                 >
-                    <span className="start-nation-flag"><img src={getFlagUrl(n, 20)} alt={n} className="start-nation-flag-icon" /></span>
-                    <span className="start-nation-name">{n}</span>
-                    {nationality === n && <span className="start-nation-check">✓</span>}
+                    <span className="start-nation-flag"><img src={getFlagUrl(n.name, 20)} alt={n.name} className="start-nation-flag-icon" /></span>
+                    <span className="start-nation-name">{n.name}</span>
+                    {nationality === n.name && <span className="start-nation-check">✓</span>}
                 </button>
               ))}
               {filteredNations.length === 0 && (

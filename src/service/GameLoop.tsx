@@ -117,8 +117,14 @@ function rollWorldChampionship(team: TeamOption | null, period: {wins:number; ra
 
 function rollConstructorsTrophy(team: TeamOption | null, isChampion: boolean, period: {wins:number; races:number}): boolean {
     if(team?.category != 'FORMULA 1') return false;
+    if(seasonYears == 2){
+        if (isChampion) return Math.random() < 0.52;
+        if (period.wins > period.races * 0.5) return Math.random() < 0.15;
+        return Math.random() < 0.015;
+    }
+    
     if (isChampion) return Math.random() < 0.80;
-    if (period.wins > period.races * 0.4) return Math.random() < 0.28;
+    if (period.wins > period.races * 0.5) return Math.random() < 0.25;
     return Math.random() < 0.03;
 }
 
@@ -167,6 +173,11 @@ function updateAge(years: number) {
     player.age += years;
 }
 
+function normalizedSkill(ovr: number): number {
+    // asymptotic: se acerca a 1 pero nunca lo alcanza
+    return 1 - Math.exp(-ovr / 90);
+}
+
 function computePeriodStats() {
     let races = 0;
     if (injuredNextPeriod) {
@@ -186,7 +197,7 @@ function computePeriodStats() {
         return { races, wins: races, podiums: races, dnf: 0 };
     }
 
-    const performance = player.talent * 0.5 + (player.ovr / 99) * 0.5;
+    const performance = player.talent * 0.5 + normalizedSkill(player.ovr) * 0.5;
 
     if (player.talent > 0.75) {
         const dominantChance = (player.talent - 0.75) / 0.25;

@@ -105,9 +105,13 @@
   .decisions {
     margin: 24px 0;
   }
+  
+  .decisions-title {
+    font-size: 12px;
+  }
 
   .decisions-description {
-    font-size: 13px;
+    font-size: 12px;
     max-width: 100%;
   }
 

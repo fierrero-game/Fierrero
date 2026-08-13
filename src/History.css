@@ -34,16 +34,12 @@
   display: grid;
   grid-template-columns: 56px 1fr 64px repeat(var(--stat-cols, 3), 64px);
   align-items: center;
-  gap: 8px;
+  gap: 0px;
   padding: 10px 20px;
   border-top: 1px solid var(--border);
 
-  /* IMPORTANTE:
-     cada fila se convierte en un container
-     para que sus elementos puedan adaptarse a su alto */
   container-type: size;
 
-  /* Permite que los elementos internos se achiquen */
   min-width: 0;
 }
 
@@ -73,6 +69,11 @@
   background: var(--code-bg);
 }
 
+.history-header .history-cell {
+  color: var(--text-h);
+  opacity: 1;
+}
+
 .history-cell {
   display: flex;
   align-items: center;
@@ -89,11 +90,16 @@
 
 .history-cell-age {
   font-family: var(--mono);
-  font-weight: 700;
+  font-weight: 600;
 
-  font-size: clamp(16px, 32cqh, 20px);
+  font-size: clamp(11px, 32cqh, 20px);
 
   color: var(--text-h);
+}
+
+.history-header .history-cell-age {
+  font-size: inherit;
+  opacity: 1;
 }
 
 .history-club-name {
