@@ -77,4 +77,4 @@ Si te gustó Fierrero y querés bancar su desarrollo, podés invitarnos un cafec
 
 ## Licencia
 
-Este proyecto es de uso personal / código abierto. *(Ajustar según corresponda si se agrega una licencia formal.)*
+Este proyecto es de uso personal / código abierto.
