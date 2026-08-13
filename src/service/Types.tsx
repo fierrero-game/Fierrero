@@ -50,8 +50,9 @@ export type Category =
     | 'INDYCAR'
     | 'WEC_LEMANS'
     | 'TURISMO_CARRETERA' 
-    | 'STOCK_CAR_BRASIL';
-
+    | 'STOCK_CAR_BRASIL'
+    | 'FORMULA E'
+    | 'SUPER FORMULA';
 
 export type Nations = typeof NATIONALITIES[number]['name'];
 

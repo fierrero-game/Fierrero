@@ -34,6 +34,8 @@ import penske from '../assets/F4/penske.png'
 import rahal from '../assets/F4/rahal.png'
 import andretti from '../assets/F4/andretti.png'
 import ganassi from '../assets/F4/ganassi.png'
+import meyer from '../assets/F4/meyer.png'
+import impul from '../assets/F4/impul.png'
 
 //F1
 import mercedes from '../assets/F1/mercedes.png'
@@ -46,6 +48,7 @@ import sauber from '../assets/F1/sauber.png'
 import alpine from '../assets/F1/alpine.png'
 import haas from '../assets/F1/haas.png'
 import cadillac from '../assets/F1/cadillac.png'
+import audi from '../assets/F1/audi.png'
 
 export const kartingTeams: TeamOption[] = [
     { name: "Janke Kart Team", category: "KARTING ARGENTINO", color: "red", logoUrl: red },
@@ -124,6 +127,7 @@ export const f1Teams: TeamOption[] = [
     { name: "Sauber", category: "FORMULA 1", color: "green", logoUrl: sauber },
     { name: "Haas", category: "FORMULA 1", color: "gray", logoUrl: haas },
     { name: "Cadillac", category: "FORMULA 1", color: "black", logoUrl: cadillac },
+    { name: 'Audi', category: 'FORMULA 1', color: 'gray', logoUrl:audi}
 ]
 
 export const indycarTeams: TeamOption[] = [
@@ -131,9 +135,50 @@ export const indycarTeams: TeamOption[] = [
     { name: "Chip Ganassi Racing", category: "INDYCAR", color: "red", logoUrl: ganassi },
     { name: "Andretti Global", category: "INDYCAR", color: "green", logoUrl: andretti },
     { name: "Arrow McLaren", category: "INDYCAR", color: "orange", logoUrl: mclaren },
-    { name: "Rahal Letterman Lanigan", category: "INDYCAR", color: "black", logoUrl: rahal },
+    { name: "Rahal Letterman Lanigan", category: "INDYCAR", color: "black", logoUrl:rahal },
+    { name: "Ed Carpenter Racing", category: "INDYCAR", color: "blue", logoUrl: 'https://www.tracksideonline.com/wp-content/uploads/2025/01/Ed-Carpenter-Racing-rebrand.png'},
+    { name: "Meyer Shank Racing", category: "INDYCAR", color: "navy", logoUrl: meyer },
+    { name: "A.J. Foyt Enterprises", category: "INDYCAR", color: "gold", logoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH6LaT31rYYBnVzyboOPnvnppySZ1PMrMqfgO4ga7oXbw1IaesH69_Jmwr&s=10' },
+    { name: "Dale Coyne Racing", category: "INDYCAR", color: "purple", logoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ7rsVkGng_UTOzFRorSQwxfmz4wJbOpFM5k_RLkGPqlWZnMqMZo0Ge6zH&s=10'},
+    { name: "Juncos Hollinger Racing", category: "INDYCAR", color: "cyan", logoUrl:'https://upload.wikimedia.org/wikipedia/en/9/9b/2023_Juncos_Hollinger_Racing_Logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original'},
+
+    //SUPER FORMULA
+    { name: "TOM'S", category: "SUPER FORMULA", color: "red", logoUrl: 'https://cdn.worldvectorlogo.com/logos/tom-s-1.svg'},
+    { name: "Team Mugen", category: "SUPER FORMULA", color: "black", logoUrl:'https://i.pinimg.com/236x/e6/26/db/e626dbae13b7db6a6c8bc6426f8b2f9e.jpg'},
+    { name: "Nakajima Racing", category: "SUPER FORMULA", color: "blue", logoUrl:'https://r2.thesportsdb.com/images/media/team/badge/0pvjbw1566328108.png'},
+    { name: "Kondo Racing", category: "SUPER FORMULA", color: "green", logoUrl:'https://play-lh.googleusercontent.com/3gT5O3RF-Dk_3s2K7Fdi3IptJ2Tn0015W938JZvywT5s8qTIyz-QRFx8zkL3iIBaZmMj3_8cZBWVuMS_aRmnvwE=w240-h480-rw'},
+    { name: "Docomo Team Dandelion Racing", category: "SUPER FORMULA", color: "orange", logoUrl:'https://www.dandelion-racing.com/team/wp-content/themes/dtdr/images/common/ogp.jpg' },
+    { name: "Rookie Racing (TOYOTA)", category: "SUPER FORMULA", color: "yellow", logoUrl:'https://www.formula1points.com//images/constructors/toyota.webp'},
+    { name: "Team Impul", category: "SUPER FORMULA", color: "purple", logoUrl:impul },
+    { name: "B-Max Racing Team", category: "SUPER FORMULA", color: "cyan", logoUrl:'https://upload.wikimedia.org/wikipedia/commons/e/eb/Bmax.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' },
+
+
 ]
 
+export const formulaETeams: TeamOption[] = [
+    { name: "Jaguar TCS Racing", category: "FORMULA E", color: "teal" },
+    { name: "Envision Racing", category: "FORMULA E", color: "cyan" },
+    { name: "DS Penske", category: "FORMULA E", color: "red" },
+    { name: "Nissan Formula E Team", category: "FORMULA E", color: "blue" },
+    { name: "Porsche Formula E Team", category: "FORMULA E", color: "black" },
+    { name: "Mahindra Racing", category: "FORMULA E", color: "orange" },
+    { name: "NEOM McLaren Formula E Team", category: "FORMULA E", color: "papaya" },
+    { name: "Andretti Formula E", category: "FORMULA E", color: "green" },
+    { name: "ABT CUPRA Formula E Team", category: "FORMULA E", color: "silver" },
+    { name: "Maserati MSG Racing", category: "FORMULA E", color: "navy" },
+]
+
+export const superFormulaTeams: TeamOption[] = [
+    { name: "TOM'S", category: "SUPER FORMULA", color: "red", logoUrl: 'https://cdn.worldvectorlogo.com/logos/tom-s-1.svg'},
+    { name: "Team Mugen", category: "SUPER FORMULA", color: "black", logoUrl:'https://i.pinimg.com/236x/e6/26/db/e626dbae13b7db6a6c8bc6426f8b2f9e.jpg'},
+    { name: "Nakajima Racing", category: "SUPER FORMULA", color: "blue", logoUrl:'https://r2.thesportsdb.com/images/media/team/badge/0pvjbw1566328108.png'},
+    { name: "Kondo Racing", category: "SUPER FORMULA", color: "green", logoUrl:'https://play-lh.googleusercontent.com/3gT5O3RF-Dk_3s2K7Fdi3IptJ2Tn0015W938JZvywT5s8qTIyz-QRFx8zkL3iIBaZmMj3_8cZBWVuMS_aRmnvwE=w240-h480-rw'},
+    { name: "Docomo Team Dandelion Racing", category: "SUPER FORMULA", color: "orange", logoUrl:'https://www.dandelion-racing.com/team/wp-content/themes/dtdr/images/common/ogp.jpg' },
+    { name: "Rookie Racing (TOYOTA)", category: "SUPER FORMULA", color: "yellow", logoUrl:'https://www.formula1points.com//images/constructors/toyota.webp'},
+    { name: "Team Impul", category: "SUPER FORMULA", color: "purple", logoUrl:impul },
+    { name: "B-Max Racing Team", category: "SUPER FORMULA", color: "cyan", logoUrl:'https://upload.wikimedia.org/wikipedia/commons/e/eb/Bmax.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' },
+
+]
 
 export const NATIONALITIES = [
   // SUDAMERICA

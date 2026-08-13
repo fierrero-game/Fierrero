@@ -44,6 +44,7 @@ export function initializePlayer(name: string, nationality: Nations, number: num
     injuredNextPeriod = false;
     championship = false;
     seasonYears = years;
+    console.log(player.talent);
 }
 
 export function chooseTeam(chosen: TeamOption) {
@@ -118,18 +119,18 @@ function rollWorldChampionship(team: TeamOption | null, period: {wins:number; ra
 function rollConstructorsTrophy(team: TeamOption | null, isChampion: boolean, period: {wins:number; races:number}): boolean {
     if(team?.category != 'FORMULA 1') return false;
     if(seasonYears == 2){
-        if (isChampion) return Math.random() < 0.52;
-        if (period.wins > period.races * 0.5) return Math.random() < 0.15;
-        return Math.random() < 0.015;
+        if (isChampion) return Math.random() < 0.32;
+        if (period.wins > period.races * 0.5) return Math.random() < 0.1;
+        return Math.random() < 0.001;
     }
     
-    if (isChampion) return Math.random() < 0.80;
-    if (period.wins > period.races * 0.5) return Math.random() < 0.25;
-    return Math.random() < 0.03;
+    if (isChampion) return Math.random() < 0.52;
+    if (period.wins > period.races * 0.5) return Math.random() < 0.15;
+    return Math.random() < 0.015;
 }
 
 function getCategoryTeams(): TeamOption[] {
-    if (player.ovr < 85 && player.age > 28) return indycarTeams;
+    if (player.ovr < 85 && player.age > 25) return indycarTeams;
     else if (player.ovr < 50) return kartingTeams;
     else if (player.ovr >= 50 && player.ovr < 60) return f4Teams;
     else if (player.ovr >= 60 && player.ovr < 70) return f3Teams;
@@ -228,7 +229,7 @@ function updateOVR(){
         }
     }
     else{
-        const decline = 2 + Math.random() * 10;
+        const decline = 3 + Math.random() * 15;
         player.ovr -= decline * (1 - player.talent * 0.4) * growthScale;
     }
     

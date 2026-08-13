@@ -6,6 +6,7 @@ import MundialF4 from "/src/assets/Trophies/F4BritishTrophy.png";
 import MundialIndyCar from "/src/assets/Trophies/indycarTrophy.png";
 import MundialKarting from "/src/assets/Trophies/KartingTrophy2.png";
 import ConstructorF1 from "/src/assets/Trophies/F1Constructor.png";
+import SuperFormulaTrophy from '/src/assets/Trophies/SuperFormulaTrophy.png'
 
 export const TROPHY_IMAGE: Record<Trophy['type'], string> = {
   wdc: MundialF1,
@@ -15,6 +16,7 @@ export const TROPHY_IMAGE: Record<Trophy['type'], string> = {
   f4: MundialF4,
   karting: MundialKarting,
   indycar: MundialIndyCar,
+  fjaponesa: SuperFormulaTrophy,
 };
 
 export const TROPHY_LABEL: Record<Trophy['type'], string> = {
@@ -25,6 +27,7 @@ export const TROPHY_LABEL: Record<Trophy['type'], string> = {
   f4: "Campeón de F4",
   karting: "Campeón de Karting",
   indycar: "Campeón de IndyCar",
+  fjaponesa: "Campeon de SuperFormula"
 };
 
 const CATEGORY_TROPHY_TYPE: Partial<Record<Category, Trophy['type']>> = {
@@ -36,6 +39,7 @@ const CATEGORY_TROPHY_TYPE: Partial<Record<Category, Trophy['type']>> = {
   'FORMULA 2': 'f2',
   'FORMULA 1': 'wdc',
   'INDYCAR': 'indycar',
+  'SUPER FORMULA':'fjaponesa',
 };
 
 export function getTrophyType(category: Category | undefined): Trophy['type'] | null {
