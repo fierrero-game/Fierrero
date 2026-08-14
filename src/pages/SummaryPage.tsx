@@ -244,6 +244,7 @@ export default function SummaryPage({ onRestart }: SummaryPageProps) {
                         races={player.races}
                         wins={player.wins}
                         podiums={player.podiums}
+                        dnf={player.dnf}
                         teamsInOrder={teamsInOrder}
                         trophies={player.trophies}
                     />

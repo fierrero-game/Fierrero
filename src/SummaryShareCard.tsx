@@ -13,12 +13,13 @@ interface SummaryShareCardProps {
   races: number;
   wins: number;
   podiums: number;
+  dnf:number;
   teamsInOrder: TeamOption[]; // trayectoria, en orden cronológico, sin repetir
   trophies: Trophy[]; // todas las de la carrera, sin agrupar por equipo
 }
 
 const SummaryShareCard = forwardRef<HTMLDivElement, SummaryShareCardProps>(
-  ({ name, number, nationality, maxOvr, races, wins, podiums, teamsInOrder, trophies }, ref) => {
+  ({ name, number, nationality, maxOvr, races, wins, podiums,dnf, teamsInOrder, trophies }, ref) => {
     const ovrTone = getOvrTone(Math.round(maxOvr));
 
     const trophyCounts = new Map<string, number>();
@@ -54,6 +55,10 @@ const SummaryShareCard = forwardRef<HTMLDivElement, SummaryShareCardProps>(
           <div className="share-card-stat">
             <span className="share-card-stat-label">Podios</span>
             <span className="share-card-stat-value">{Math.round(podiums)}</span>
+          </div>
+          <div className="share-card-stat">
+            <span className="share-card-stat-label">DNF</span>
+            <span className="share-card-stat-value">{Math.round(dnf)}</span>
           </div>
         </div>
 
