@@ -1,10 +1,13 @@
 .share-card {
   width: 340px;
+  max-width: 100%;
+  margin: 0 auto; /* <-- se autocentra sin depender del padre */
   padding: 24px 20px;
   border-radius: 12px;
   background: linear-gradient(160deg, var(--bg-alt) 0%, var(--code-bg) 100%);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -27,6 +30,7 @@
   height: 44px;
   border-radius: 6px;
   flex-shrink: 0;
+  color: #fff;
 }
 
 .share-card-ovr-label {
@@ -73,18 +77,6 @@
   font-size: 15px;
   color: var(--text-h);
   text-transform: uppercase;
-}
-.share-card-ovr {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
-  flex-shrink: 0;
-  color: #fff; 
 }
 
 .share-card-stats {
@@ -194,4 +186,49 @@
   color: var(--accent);
   font-weight: 600;
   opacity: 1;
+}
+
+@media (max-width: 400px) {
+  .share-card {
+    width: 100%;
+    padding: 18px 14px;
+    gap: 14px;
+    border-radius: 10px;
+  }
+
+  .share-card-ovr {
+    width: 38px;
+    height: 38px;
+  }
+
+  .share-card-ovr-value {
+    font-size: 15px;
+  }
+
+  .share-card-name {
+    font-size: 13px;
+  }
+
+  .share-card-pill {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  .share-card-stats {
+    padding: 10px 0;
+  }
+
+  .share-card-stat-value {
+    font-size: 14px;
+  }
+
+  .share-card-team-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .share-card-trophy img {
+    width: 30px;
+    height: 30px;
+  }
 }
