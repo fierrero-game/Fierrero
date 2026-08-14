@@ -31,7 +31,7 @@ export default function PresentationPage({ onSelectMode }: PresentationPageProps
           <button
             type="button"
             className="presentation-mode-btn presentation-mode-normal"
-            onClick={() => onSelectMode("normal")}
+            onClick={() => onSelectMode("normal") }
           >
             <span className="presentation-mode-name">Normal</span>
             <span className="presentation-mode-desc">

@@ -45,7 +45,7 @@ export function initializePlayer(name: string, nationality: Nations, number: num
     injuredNextPeriod = false;
     championship = false;
     seasonYears = years;
-    console.log(player.talent);
+
 }
 
 function rollTalent(): number {

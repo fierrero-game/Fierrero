@@ -21,6 +21,10 @@ interface DecisionsProps {
 }
 
 export default function Decisions({ title, description, options }: DecisionsProps) {
+  function handleSelect(onSelect?: () => void) {
+    onSelect?.();
+  }
+
   return (
     <div className="decisions">
       <h2 className="decisions-title">{title}</h2>
@@ -32,7 +36,7 @@ export default function Decisions({ title, description, options }: DecisionsProp
             type="button"
             key={opt.id}
             className={`decision-card ${opt.variant === 'current' ? 'decision-card-current' : ''}`}
-            onClick={opt.onSelect}
+            onClick={() => handleSelect(opt.onSelect)}
             disabled={opt.disabled}
           >
             <span className="decision-label">{opt.label}</span>
