@@ -13,6 +13,34 @@
   gap: 20px;
 }
 
+.summary-view-toggle {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.summary-toggle-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.summary-toggle-btn:hover {
+  border-color: var(--accent-border);
+}
+
+.summary-toggle-btn-active {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
 /* ---- Tarjeta principal del piloto ---- */
 
 .summary-driver-card {

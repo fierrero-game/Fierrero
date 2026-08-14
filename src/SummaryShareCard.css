@@ -1,0 +1,197 @@
+.share-card {
+  width: 340px;
+  padding: 24px 20px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, var(--bg-alt) 0%, var(--code-bg) 100%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.share-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.share-card-ovr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.share-card-ovr-label {
+  font-family: var(--heading);
+  font-size: 8px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.share-card-ovr-value {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.share-card-ovr-bronze { background: linear-gradient(160deg, #cd7f32, #8a5a22); }
+.share-card-ovr-green  { background: linear-gradient(160deg, #2fae5c, #1f7a41); }
+.share-card-ovr-blue   { background: linear-gradient(160deg, #3b82f6, #2557b0); }
+.share-card-ovr-gold   { background: linear-gradient(160deg, var(--gold), #8a6608); }
+.share-card-ovr-purple { background: linear-gradient(160deg, #a855f7, #7c3aed); }
+
+.share-card-flag {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.share-card-pill {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--text-h);
+}
+
+.share-card-name {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-h);
+  text-transform: uppercase;
+}
+.share-card-ovr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  color: #fff; 
+}
+
+.share-card-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.share-card-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.share-card-stat-label {
+  font-size: 9px;
+  color: var(--text);
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.share-card-stat-value {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
+.share-card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-card-section-title {
+  font-family: var(--heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.share-card-teams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.share-card-team-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.share-card-trophies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.share-card-trophy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-card-trophy img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.share-card-trophy-count {
+  position: absolute;
+  bottom: -4px;
+  right: -8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-h);
+  background: var(--gold-bg);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 0 4px;
+}
+
+.share-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.6;
+  padding-top: 4px;
+}
+
+.share-card-footer-link {
+  color: var(--accent);
+  font-weight: 600;
+  opacity: 1;
+}
